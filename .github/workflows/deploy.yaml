@@ -1,0 +1,74 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  push_docker_image:
+    name: Build & Publish Docker image
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile -t subcord/frontend/frontend:${{ github.sha }}
+
+      - name: Publish Docker image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: subcord/frontend/frontend:${{ github.sha }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+
+  deploy_to_kubernetes:
+    name: Deploy to Kubernetes
+    runs-on: ubuntu-latest
+    needs: [push_docker_image]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: https://subcord.dev/
+          environment: production
+
+      - uses: Azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+
+      - uses: Azure/k8s-deploy@v1
+        with:
+          namespace: 'subcord'
+          manifests: |
+            deployment.yaml
+          images: 'docker.pkg.github.com/subcord/frontend/frontend::${{ github.sha }}'
+          imagepullsecrets: |
+            githubpackage
+          kubectl-version: 'latest'
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://subcord.dev/
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://subcord.dev/
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
