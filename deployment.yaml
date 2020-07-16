@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: subcord
+spec:
+  revisionHistoryLimit: 2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+      namespace: subcord
+    spec:
+      containers:
+        - name: frontend
+          image: docker.pkg.github.com/subcord/frontend/frontend
+          imagePullPolicy: "IfNotPresent"
