@@ -24,9 +24,7 @@
 }
 
 .Header-bar {
-    margin: 0 !important;
     background-color: #23272A;
-    height: 100%;
     position: fixed;
     width: 100%;
 }
