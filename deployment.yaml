@@ -19,3 +19,16 @@ spec:
         - name: frontend
           image: docker.pkg.github.com/subcord/frontend/frontend
           imagePullPolicy: "IfNotPresent"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: subcord
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
