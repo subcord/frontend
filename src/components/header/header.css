@@ -1,0 +1,56 @@
+.Header-text {
+    padding-left: 20px;
+}
+
+.Header-link-container {
+    margin-left: auto;
+    padding-right: 60px;
+}
+
+.Header-link {
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+}
+
+.Header-bar {
+    margin: 0 !important;
+    background-color: #23272A;
+    height: 100%;
+}
+
+.Header > * {
+    vertical-align: middle;
+}
+
+.Header-image {
+    clip-path: circle(35px at center);
+}
+
+.active-link {
+    color: #7289DA;
+}
+
+.reddit {
+    background-color: #FF5700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+
+.reddit > svg {
+    vertical-align: middle;
+    font-size: 2em;
+    padding-right: 10px;
+}
