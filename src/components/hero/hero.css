@@ -33,6 +33,7 @@
 }
 
 .Hero-wave {
+    display:block;
     margin: 0;
     padding-bottom: 0px;
 }
