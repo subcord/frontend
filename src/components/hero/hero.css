@@ -1,0 +1,44 @@
+.Hero {
+    text-align: center;
+    background-image: url(./background.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.Hero-top {
+    margin-top: 0;
+}
+
+.Hero-line {
+    margin-top: 0;
+    font-size: 5em;
+    margin-bottom: 0;
+}
+
+.Hero-brand {
+    width: 25%;
+}
+
+.Hero-brand-line > * {
+    display: inline;
+    vertical-align: middle;
+}
+
+.Hero-brand-line {
+    margin-top: 0;
+}
+
+.Hero-ampersand {
+    font-size: 5em;
+}
+
+.Hero-wave {
+    margin: 0;
+    padding-bottom: 0px;
+}
+
+.Hero-content {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
