@@ -50,7 +50,7 @@ jobs:
           namespace: 'subcord'
           manifests: |
             deployment.yaml
-          images: 'docker.pkg.github.com/subcord/frontend/frontend::${{ github.sha }}'
+          images: 'docker.pkg.github.com/subcord/frontend/frontend:${{ github.sha }}'
           imagepullsecrets: |
             githubpackage
           kubectl-version: 'latest'
