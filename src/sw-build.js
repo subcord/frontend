@@ -1,4 +1,4 @@
-import workboxBuild from "workbox-build";
+const workboxBuild = require("workbox-build");
 
 const buildSW = () => {
   return workboxBuild
