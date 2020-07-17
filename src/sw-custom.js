@@ -6,11 +6,8 @@ if ("function" === typeof importScripts) {
   if (workbox) {
     console.log("Workbox is loaded");
 
-    workbox.setConfig({ debug: true });
-
     self.addEventListener("install", (event) => {
       self.skipWaiting();
-      window.location.reload();
     });
 
     workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
