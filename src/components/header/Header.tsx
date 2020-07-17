@@ -37,16 +37,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               SUBCORD
             </h1>
             <div className="Header-link-container">
-              <a href="#" className="Header-link Header-desktop-link active-link">
+              <a href="/" className="Header-link Header-desktop-link active-link">
                 Home
               </a>
-              <a href="#" className="Header-link Header-desktop-link">
+              <a href="/" className="Header-link Header-desktop-link">
                 Reddit
               </a>
-              <a href="#" className="Header-link Header-desktop-link">
+              <a href="/" className="Header-link Header-desktop-link">
                 Panley Entertainment
               </a>
-              <a href="#" className="Header-link Header-desktop-link reddit">
+              <a href="/" className="Header-link Header-desktop-link reddit">
                 <FontAwesomeIcon icon={faReddit} />
                 Sign in with Reddit
               </a>
@@ -59,16 +59,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         </div>
         <div className="Header-content-block"></div>
         <div className="Header-mobile-menu" style={{height: this.state.dropDownToggled ? '50%' : 0}}>
-          <a href="#" className="Header-link Header-mobile-link active-link">
+          <a href="/" className="Header-link Header-mobile-link active-link">
             Home
           </a>
-          <a href="#" className="Header-link Header-mobile-link">
+          <a href="/" className="Header-link Header-mobile-link">
             Reddit
           </a>
-          <a href="#" className="Header-link Header-mobile-link">
+          <a href="/" className="Header-link Header-mobile-link">
             Panley Entertainment
           </a>
-          <a href="#" className="Header-link Header-mobile-link reddit">
+          <a href="/" className="Header-link Header-mobile-link reddit">
             <FontAwesomeIcon icon={faReddit} />
             Sign in with Reddit
           </a>
