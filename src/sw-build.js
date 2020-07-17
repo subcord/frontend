@@ -13,7 +13,7 @@ const buildSW = () => {
 
       maximumFileSizeToCacheInBytes: 5 * 1024 * 102,
     })
-    .then((data: InjectData) => {
+    .then((data) => {
       data.warnings.forEach(console.warn);
       console.info(`${data.count} files will be precached,
                   totaling ${data.size / (1024 * 1024)} MBs.`);
