@@ -13,7 +13,7 @@ if ("function" === typeof importScripts) {
       window.location.reload();
     });
 
-    workbox.precaching.precacheAndRoute([]);
+    workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
     workbox.routing.registerRoute(
       new RegExp("https://fonts.(?:.googlepis|gstatic).com/(.*)"),
