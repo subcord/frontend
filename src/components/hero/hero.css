@@ -17,7 +17,23 @@
 }
 
 .Hero-brand {
-    width: 25%;
+    width: 30%;
+}
+
+.Hero-content {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+  .Hero-line {
+    font-size: 3em;
+  }
+
+  .Hero-content {
+    width: 90%;
+  }
 }
 
 .Hero-brand-line > * {
@@ -38,10 +54,4 @@
     display:block;
     margin: 0;
     padding-bottom: 0px;
-}
-
-.Hero-content {
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
 }
