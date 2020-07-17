@@ -15,12 +15,30 @@
     color: white;
 }
 
+.Header-hamburger {
+    display: none;
+}
+
+.Header-hamburger-icon {
+    font-size: 2em;
+}
+
+@media (max-width: 1000px) {
+    .Header-hamburger {
+        display: inline;
+    }
+
+    .Header-desktop-link {
+        display: none;
+    }
+}
+
 .Header {
     display: flex;
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 100px;
+    padding-left: 10px;
 }
 
 .Header-bar {
@@ -31,10 +49,10 @@
 }
 
 .Header-content-block {
-  padding-top: 120px;
+    padding-top: 120px;
 }
 
-.Header > * {
+.Header>* {
     vertical-align: middle;
 }
 
@@ -46,16 +64,55 @@
     color: #7289DA;
 }
 
+.Header-hamburger-button {
+    background: none;
+    border: none;
+    color: white;
+    padding-right: 50px;
+}
+
+.Header-hamburger-button:hover {
+    cursor: pointer;
+}
+
+.Header-hamburger-button:focus {
+    outline: none;
+}
+
 .reddit {
     background-color: #FF5700;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
-    margin-left: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.reddit > svg {
+.reddit>svg {
     vertical-align: middle;
     font-size: 2em;
     padding-right: 10px;
+}
+
+.Header-mobile-menu > * {
+  display: block;
+}
+
+.Header-mobile-menu {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background-color: #2C2F33;
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+}
+
+.Header-mobile-spacer {
+  padding-bottom: 20px;
+}
+
+.Header-mobile-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
