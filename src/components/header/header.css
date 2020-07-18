@@ -102,10 +102,12 @@
   z-index: 1;
   position: fixed;
   width: 100%;
+  height: auto;
   text-align: center;
   background-color: #2C2F33;
-  transition: all .5s ease-in-out;
   overflow: hidden;
+  transition: all .3s ease-in-out;
+  transform-origin:top;
 }
 
 .Header-mobile-spacer {
