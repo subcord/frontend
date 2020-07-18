@@ -9,6 +9,7 @@ interface HeaderProps {}
 
 interface HeaderState {
   dropDownToggled: boolean,
+  width: Number,
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
@@ -18,6 +19,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     super(props);
     this.state = {
       dropDownToggled: false,
+      width: 0,
     }
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -26,12 +28,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.updateWidth);
     document.addEventListener('click', this.handleClickOutside);
   }
 
   componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWidth);
     document.removeEventListener('click', this.handleClickOutside);
   }
+
+  updateWidth = () => {
+    this.setState({ width: window.innerWidth });
+  };
 
   handleClickOutside(event: any) {
     if (this.dropDownRef && !this.dropDownRef.current?.contains(event.target)) {
@@ -50,7 +58,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   render() {
     return (
       <div>
-        <div className="Header-bar">
         <div className="Header-bar" ref={this.dropDownRef}>
           <div className="Header">
             <img src={logo} className="Header-image" height={70} alt="subcord logo" />
@@ -79,8 +86,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </div>
         </div>
         <div className="Header-content-block"></div>
-        <div className="Header-mobile-menu" style={{height: this.state.dropDownToggled ? '50%' : 0}}>
-        <div className="Header-mobile-menu" style={{transform: this.state.dropDownToggled ? "scaleY(1)" : "scaleY(0)"}}>
+        <div className="Header-mobile-menu" style={{transform: (this.state.dropDownToggled && this.state.width < 1000) ? "scaleY(1)" : "scaleY(0)"}}>
           <a href="/" className="Header-link Header-mobile-link active-link">
             Home
           </a>
